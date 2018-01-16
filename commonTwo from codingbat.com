@@ -1,9 +1,13 @@
-"Start with two arrays of strings, a and b, each in alphabetical order, possibly with duplicates. Return the count of the number of strings which appear in both arrays."
+"Start with two arrays of strings, a and b, each in alphabetical order, possibly with duplicates. 
+Return the count of the number of strings which appear in both arrays."
 
 
 
 
-So here I want to write a function to find duplicates in two sorted arrays containing single characters, in alphabetical order. This problem is important because the ordering of the two arrays allows us to solve it without nested loops, so solutions are found more efficiently.
+So here I want to write a function to find duplicates in 
+two sorted arrays containing single characters, in alphabetical order. 
+This problem is important because the ordering of the two arrays allows us 
+to solve it without nested loops, so solutions are found more efficiently.
 
 
 
