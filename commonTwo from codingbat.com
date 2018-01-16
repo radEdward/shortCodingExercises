@@ -12,13 +12,17 @@ to solve it without nested loops, so solutions are found more efficiently.
 
 
 
+//define the method commonTwo which returns an integer (number of common characters) from taking in 
+//two string arrays. 
 
 public int commonTwo(String[] a, String[] b) {
-  
-  int indexA = 0;
-  int indexB = 0;
-  int ping = 0;
-  boolean repititions = false;
+
+//initiate and define variable values.
+
+  int indexA          = 0;      //indexing value for array A
+  int indexB          = 0;      //indexing value for array B
+  int ping            = 0;      //this value will increment every time a common character is found
+  boolean repititions = false;  //this value tells me whether a common character was counted twice
   
   while (indexA < a.length && indexB < b.length) {
     
