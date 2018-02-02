@@ -1,1 +1,1 @@
-
+Let's suppose we wanted to walk through a 2 dimensional array and print each available element. In order to hit each location in the array, you will need to go through each row (or column) separately. 
