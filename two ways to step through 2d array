@@ -1,1 +1,31 @@
-Let's suppose we wanted to walk through a 2 dimensional array and print each available element. In order to hit each location in the array, you will need to go through each row (or column) separately. 
+Let's suppose we wanted to walk through a 2 dimensional array and print each available element. In order to hit each location in the array, you will need to hit each element in a row (or column) and then advance to the next row (or column) and do the same. This can be done until the last row (or column) is reached. One way to do this is with a simple nested loop.
+
+Object[][] array = someCollectionOfThings[x][y]; // some 2d array with x columns and y rows
+
+for (int i = 0; i < x; i++) { 
+  for (int j = 0; j < y; j++) { // for each individual x, each y is counted
+  
+    System.out.println( array[i][j] ); // for each y in column x, the element in that location is printed
+    
+  }
+}
+
+
+
+There's another way to do this same process by advancing a counter in a single loop. The algorithm takes the same number of steps, but prevents us from having to employ a nested loop.
+
+Object[][] array = someCollectionOfThings[x][y]; // some 2d array with x columns and y rows
+
+int j = 0;
+int k = -1;
+
+for (int i = 0; i < (x * y); i++) {     // loops for every element in the 2d array
+  
+  if (i % x == 0) { j = 0;
+                     k++; }             // checks to see whether the loop has gone through an entire row, then advances k to the next row
+  
+  System.out.println( array[j][k] );    // prints element
+  
+  j++;
+
+}
