@@ -1,4 +1,6 @@
-Let's suppose we wanted to walk through a 2 dimensional array and print each available element. In order to hit each location in the array, you will need to hit each element in a row (or column) and then advance to the next row (or column) and do the same. This can be done until the last row (or column) is reached. One way to do this is with a simple nested loop.
+Let's suppose we wanted to walk through a 2 dimensional array and print each available element. In order to hit each location in the 
+array, you will need to hit each element in a row (or column) and then advance to the next row (or column) and do the same. This can be 
+done until the last row (or column) is reached. One way to do this is with a simple nested loop.
 
 Object[][] array = someCollectionOfThings[x][y]; // some 2d array with x columns and y rows
 
@@ -12,7 +14,8 @@ for (int i = 0; i < x; i++) {
 
 
 
-There's another way to do this same process by advancing a counter in a single loop. The algorithm takes the same number of steps, but prevents us from having to employ a nested loop.
+There's another way to do this same process by advancing a counter in a single loop. The algorithm takes the same number of steps, but 
+prevents us from having to employ a nested loop.
 
 Object[][] array = someCollectionOfThings[x][y]; // some 2d array with x columns and y rows
 
