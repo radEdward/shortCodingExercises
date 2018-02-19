@@ -1,5 +1,6 @@
 Just short code that will open an excel worksheet in a specified file, and copy it to another worksheet. I was motivated
-to do this by needing to automate the collection of identification numbers across multiple excel files.
+to do this by needing to automate the collection of identification numbers across multiple excel files. The code below only pulls 
+a single cell, but you could copy as many cells as desired with a loop.
 
 
 
