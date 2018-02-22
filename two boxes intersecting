@@ -1,0 +1,28 @@
+	public static boolean areTouching(int[][] box1, int[][] box2) {
+		
+		boolean topLeftInX = (box1[0][0] >= ( box2[0][0] + box1[0][0] - box1[1][0] ) && box1[0][0] <= ( box2[1][0] + box1[1][0] - box1[0][0] ));
+		
+		boolean topLeftInY = (box1[0][1] >= ( box2[1][1] - box1[1][1] + box1[0][1] ) && box1[0][1] <= ( box2[0][1] - box1[0][1] + box1[1][1] ));
+		
+		boolean bottomRightInX = (box1[1][0] >= ( box2[0][0] + box1[0][0] - box1[1][0] ) && box1[1][0] <= ( box2[1][0] + box1[1][0] - box1[0][0] ));
+		
+		boolean bottomRightInY = (box1[1][1] >= ( box2[1][1] - box1[1][1] + box1[0][1] ) && box1[1][1] <= ( box2[0][1] - box1[0][1] + box1[1][1] ));
+		
+		
+		return ( topLeftInX && topLeftInY && bottomRightInX && bottomRightInY );
+		
+	}
+	
+	
+    
+    public static void main(String[] args) {
+    	
+    	int[][] oneBox = {{0 , 3},
+    			          {3 , 0}};
+    	int[][] anotherBox = {{2 , 4},
+    			              {6 , 0}};
+    	
+    	System.out.println(areTouching(oneBox, anotherBox));
+    	
+        
+    }
