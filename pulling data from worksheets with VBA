@@ -35,8 +35,8 @@ Sub dataPullingScript()
 
   `resets default setting for screen updating and display alerts
 
-  Application.DisplayAlerts = False
-  Application.ScreenUpdating = False
+  Application.DisplayAlerts = True
+  Application.ScreenUpdating = True
   
 
 End Sub
