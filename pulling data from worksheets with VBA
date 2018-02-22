@@ -3,35 +3,40 @@ to do this by needing to automate the collection of identification numbers acros
 a single cell, but you could copy as many cells as desired with a loop.
 
 
-
-'turn off notification windows and prevent the workbook accessed from momentarily displaying on the screen
-
-Application.DisplayAlerts = False
-Application.ScreenUpdating = False
-
-Dim wksht1 As Worksheet
-Dim wkbk1 As Workbook
+Sub dataPullingScript()
 
 
-`open workbook to be copied from and choose cell to be copied
+  'turn off notification windows and prevent the workbook accessed from momentarily displaying on the screen
 
-Set wkbk1 = Workbooks.Open("\\path\to\file\to\be\copied\from")
-Set wksht1 = Worksheets("name of worksheet to copy from")
-Set copyCell = wksht1.Cells(cell to be copied)
+  Application.DisplayAlerts = False
+  Application.ScreenUpdating = False
 
-
-`open workbook to be copied to and choose cell to be copied to
-
-Workbooks("excel file to be copied to").Activate
-Worksheets("worksheet to be copied to").Cells(cell to be copied to) = copyCell
+  Dim wksht1 As Worksheet
+  Dim wkbk1 As Workbook
 
 
-`close workbook copied from without saving any changes
+  `open workbook to be copied from and choose cell to be copied
 
-wkbk1.Close SaveChanges:=False
+  Set wkbk1 = Workbooks.Open("\\path\to\file\to\be\copied\from")
+  Set wksht1 = Worksheets("name of worksheet to copy from")
+  Set copyCell = wksht1.Cells(cell to be copied)
 
 
-`resets default setting for screen updating and display alerts
+  `open workbook to be copied to and choose cell to be copied to
 
-Application.DisplayAlerts = False
-Application.ScreenUpdating = False
+  Workbooks("excel file to be copied to").Activate
+  Worksheets("worksheet to be copied to").Cells(cell to be copied to) = copyCell
+
+
+  `close workbook copied from without saving any changes
+
+  wkbk1.Close SaveChanges:=False
+
+
+  `resets default setting for screen updating and display alerts
+
+  Application.DisplayAlerts = False
+  Application.ScreenUpdating = False
+  
+
+End Sub
