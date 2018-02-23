@@ -39,6 +39,7 @@ public static void main(String[] args) {
 
     	System.out.println(areTouching(oneBox, anotherBox));
 
-
+	/** this returned true, as the boxes given above are touching at the top right corner (of oneBox) 
+	    and bottom left corner (of anotherBox) */
 
     }
