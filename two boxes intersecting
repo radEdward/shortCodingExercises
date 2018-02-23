@@ -32,10 +32,10 @@ public static boolean areTouching(int[][] box1, int[][] box2) {
 public static void main(String[] args) {
 
     	int[][] oneBox = {{0 , 3},   // top left corner
-    			          {3 , 0}};  // bottom right corner
+    			  {3 , 0}};  // bottom right corner
     	
     	int[][] anotherBox = {{3 , 6},  // top left corner
-    			              {6 , 3}}; // bottom right corner
+    			      {6 , 3}}; // bottom right corner
 
     	System.out.println(areTouching(oneBox, anotherBox));
 
