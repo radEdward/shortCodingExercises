@@ -7,12 +7,13 @@
  *  the bottom right corner, and checks one boxes location against a range of xy values around the 
  *  other box. the boolean value corresponding to whether the box lies within this range is returned.
  *  
+ *  a diagram is included showing how the method determines the boxes to be in contact.
  *  
  *  */
 
 
 
-public static boolean areTouching(int[][] box1, int[][] box2) {
+public static boolean areTouching(double[][] box1, double[][] box2) {
 		
 		boolean topLeftInX = (box1[0][0] >= ( box2[0][0] + box1[0][0] - box1[1][0] ) && box1[0][0] <= ( box2[1][0] + box1[1][0] - box1[0][0] ));
 		
@@ -31,10 +32,10 @@ public static boolean areTouching(int[][] box1, int[][] box2) {
 
 public static void main(String[] args) {
 
-    	int[][] oneBox = {{0 , 3},   // top left corner
+    	double[][] oneBox = {{0 , 3},   // top left corner
     			  {3 , 0}};  // bottom right corner
     	
-    	int[][] anotherBox = {{3 , 6},  // top left corner
+    	double[][] anotherBox = {{3 , 6},  // top left corner
     			      {6 , 3}}; // bottom right corner
 
     	System.out.println(areTouching(oneBox, anotherBox));
