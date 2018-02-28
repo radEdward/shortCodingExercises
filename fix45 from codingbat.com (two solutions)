@@ -1,69 +1,76 @@
 "(This is a slightly harder version of the fix34 problem.) Return an array that contains exactly the same numbers as the given array, but
 rearranged so that every 4 is immediately followed by a 5. Do not move the 4's, but every other number may move. The array contains the
-same number of 4's and 5's, and every 4 has a number after it that is not a 4. In this version, 5's may appear anywhere in the original
-array."
+same number of 4's and 5's, and every 4 has a number after it that is not a 4."
 
 
+
+This problem is easily solved by a nested loop, searching through the array for 4's and, whenever one is found, searching back through
+the loop for 5's to place behind the 4 in exchange for whatever number is currently behind the 4. While this is a working solution, I
+created a much more efficient algorithm that solves the problem without the use of nested loops.
+
+
+//solution without a nested loop
 
 public int[] fix45(int[] nums) {
   
-    int[] pingArray = new int[nums.length];
-		int j = 0;
-		int k = 0;
+    	int[] pingArray = new int[nums.length];
+	int j = 0;
+	int k = 0;
 
-		for (int i = 0; i < nums.length; i++) {
+	for (int i = 0; i < nums.length; i++) {
 			
-			if (i > 0 && nums[i] == 5 && nums[i-1] == 4) { continue; }
+		if (i > 0 && nums[i] == 5 && nums[i-1] == 4) { continue; }
 			
-			if (nums[i] == 5) { pingArray[j] = i;
-			                    j++;              }
+		if (nums[i] == 5) { pingArray[j] = i;
+			            j++;              }
 			
-		}
+	} // end first for loop
 
 
 
-		for (int i = 0; i < nums.length - 1; i++) {
+	for (int i = 0; i < nums.length - 1; i++) {
 			
-			if (nums[i] == 4 && nums[i+1] == 5) { continue; }
+		if (nums[i] == 4 && nums[i+1] == 5) { continue; }
 			
-			if (nums[i] == 4) { nums[pingArray[k]] = nums[i+1];
-			                    nums[i+1] = 5;
-			                    k++;                            }
+		if (nums[i] == 4) { nums[pingArray[k]] = nums[i+1];
+			            nums[i+1] = 5;
+			            k++;                            }
 			
-		}
+	} // end second for loop
   
   
   
-  return nums;
+  	return nums;
 
-}
+} // end method
 
 
 
+//solution using a nested loop
 
 public static int[] fix45 (int[] nums) {
 		
-		for (int i = 0; i < nums.length - 1; i++) {
+	for (int i = 0; i < nums.length - 1; i++) {
 			
-			if (nums[i] == 4 && nums[i+1] != 5) {
+		if (nums[i] == 4 && nums[i+1] != 5) {
 				
-				for (int j = 0; j < nums.length; j++) {
+			for (int j = 0; j < nums.length; j++) {
 					
-					if ( j == 0 && nums[j] == 5 ) { nums[j] = nums[i+1];
-													nums[i+1] = 5;
-					                                continue;            }
+				if ( j == 0 && nums[j] == 5 ) { nums[j] = nums[i+1];
+								nums[i+1] = 5;
+					                        continue;            }
 					
-					if ( nums[j] == 5 && nums[j-1] != 4 ) { nums[j] = nums[i+1];
-															nums[i+1] = 5;       }
+				if ( nums[j] == 5 && nums[j-1] != 4 ) { nums[j] = nums[i+1];
+									nums[i+1] = 5;       }
 					
-				}
+			} // end inner for loop
 				
-			}
+		} // enclose first logical statement
 			
-		}
+	} // end outer for loop
 
 
 	
-    return nums;
+    return nums; 
 
-}
+} // end method
