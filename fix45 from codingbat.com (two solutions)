@@ -9,6 +9,38 @@ the loop for 5's to place behind the 4 in exchange for whatever number is curren
 created a much more efficient algorithm that solves the problem without the use of nested loops.
 
 
+
+//solution using a nested loop
+
+public static int[] fix45 (int[] nums) {
+		
+	for (int i = 0; i < nums.length - 1; i++) {
+			
+		if (nums[i] == 4 && nums[i+1] != 5) {
+				
+			for (int j = 0; j < nums.length; j++) {
+					
+				if ( j == 0 && nums[j] == 5 ) { nums[j] = nums[i+1];
+								nums[i+1] = 5;
+					                        continue;            }
+					
+				if ( nums[j] == 5 && nums[j-1] != 4 ) { nums[j] = nums[i+1];
+									nums[i+1] = 5;       }
+					
+			} // end inner for loop
+				
+		} // enclose first logical statement
+			
+	} // end outer for loop
+
+
+	
+    return nums; 
+
+} // end method
+
+
+
 //solution without a nested loop
 
 public int[] fix45(int[] nums) {
@@ -41,36 +73,5 @@ public int[] fix45(int[] nums) {
   
   
   	return nums;
-
-} // end method
-
-
-
-//solution using a nested loop
-
-public static int[] fix45 (int[] nums) {
-		
-	for (int i = 0; i < nums.length - 1; i++) {
-			
-		if (nums[i] == 4 && nums[i+1] != 5) {
-				
-			for (int j = 0; j < nums.length; j++) {
-					
-				if ( j == 0 && nums[j] == 5 ) { nums[j] = nums[i+1];
-								nums[i+1] = 5;
-					                        continue;            }
-					
-				if ( nums[j] == 5 && nums[j-1] != 4 ) { nums[j] = nums[i+1];
-									nums[i+1] = 5;       }
-					
-			} // end inner for loop
-				
-		} // enclose first logical statement
-			
-	} // end outer for loop
-
-
-	
-    return nums; 
 
 } // end method
