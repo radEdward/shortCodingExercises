@@ -10,22 +10,27 @@ created a much more efficient algorithm that solves the problem without the use 
 
 
 
-//solution using a nested loop
+// solution using a nested loop. whenever a four is encountered (which isn't already followed by a five), the loop goes back 
+// through and finds a five (which isn't already following a four). that five is then taken and swapped with whatever is behind
+// the four found in the outer loop.
 
 public static int[] fix45 (int[] nums) {
 		
 	for (int i = 0; i < nums.length - 1; i++) {
 			
-		if (nums[i] == 4 && nums[i+1] != 5) {
+		if (nums[i] == 4 && nums[i+1] != 5) {   // if a four is found without a five after it, we search through the array.
 				
 			for (int j = 0; j < nums.length; j++) {
 					
 				if ( j == 0 && nums[j] == 5 ) { nums[j] = nums[i+1];
 								nums[i+1] = 5;
-					                        continue;            }
+					                        continue;            }         // if the first element is a five, this 
+								                               // statement ensures it's chosen first.
 					
 				if ( nums[j] == 5 && nums[j-1] != 4 ) { nums[j] = nums[i+1];
-									nums[i+1] = 5;       }
+									nums[i+1] = 5;       } // if a five is found without a four
+									                       // preceeding it, it's paired with the 
+											       // four found in the outer loop.
 					
 			} // end inner for loop
 				
@@ -41,20 +46,24 @@ public static int[] fix45 (int[] nums) {
 
 
 
-//solution without a nested loop
+// solution without a nested loop. an array is made which takes in the locations of all the fives found in the original array. once
+// all the fives are found, a loop goes through the input array and seeks out any fours. each time one is found, the element after it
+// is put where a five was found previously, and that element is replaced with a five. the previous algorithm does the same job, but
+// does it in non-linear time, where this algorithm performs the job in linear time.
 
 public int[] fix45(int[] nums) {
   
     	int[] pingArray = new int[nums.length];
-	int j = 0;
-	int k = 0;
+	int j = 0;                               // index for logging locations of fives (in first loop)
+	int k = 0;                               // index for pulling locations of fives (in second loop)
 
 	for (int i = 0; i < nums.length; i++) {
 			
-		if (i > 0 && nums[i] == 5 && nums[i-1] == 4) { continue; }
+		if (i > 0 && nums[i] == 5 && nums[i-1] == 4) { continue; }  // if a 5 is found with a 4 preceeding it, it's not counted.
 			
 		if (nums[i] == 5) { pingArray[j] = i;
-			            j++;              }
+			            j++;              }                     // if a 5 is found without a 4 preceeding, it's index is
+				                                            // logged in pingArray.
 			
 	} // end first for loop
 
@@ -62,11 +71,12 @@ public int[] fix45(int[] nums) {
 
 	for (int i = 0; i < nums.length - 1; i++) {
 			
-		if (nums[i] == 4 && nums[i+1] == 5) { continue; }
+		if (nums[i] == 4 && nums[i+1] == 5) { continue; }      // if a 4 is found with a 5 already after it, it's not counted.
 			
 		if (nums[i] == 4) { nums[pingArray[k]] = nums[i+1];
 			            nums[i+1] = 5;
-			            k++;                            }
+			            k++;                            }  // if a 4 is found without a 5 after, the element after it is
+				                                       // placed where a 5 was previously, and a 5 is placed after the 4.
 			
 	} // end second for loop
   
