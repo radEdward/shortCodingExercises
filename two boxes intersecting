@@ -7,7 +7,7 @@
  *  the bottom right corner, and checks one boxes location against a range of xy values around the 
  *  other box. the boolean value corresponding to whether the box lies within this range is returned.
  *  
- *  a diagram is included showing how the method determines the boxes to be in contact.
+ *  a diagram is included in the repository, showing how the method determines the boxes to be in contact.
  *  
  *  */
 
