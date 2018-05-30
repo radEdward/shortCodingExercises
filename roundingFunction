@@ -1,0 +1,46 @@
+    // quick solution to writing a scheme that rounds off doubles/floats. one method (decimalPlaces) counts
+    // the number of digits past the decimal. the other method (rounded) goes through each digit and eliminates 
+    // digits past the decimal. when the digit is 5 or higher, the next digit is increased by 1.
+    
+    
+    public static int decimalPlaces(double input) {
+        
+        int noOfDecimals = 0;
+        
+        String temp = Double.toString(input);
+        
+        for (int i = temp.length() - 1; i >= 0; i--) {
+            
+            if (temp.charAt(i) == '.') { return noOfDecimals; }
+            noOfDecimals++;
+            
+        }
+        
+        return 0;
+        
+    }
+    
+    public static double rounded(double input) {
+        
+        double expandInput = input * Math.pow(10.0, decimalPlaces(input));
+        
+        for (int i = 0; i < decimalPlaces(input); i++) {
+            
+            if (expandInput%10 >= 5) { expandInput += 10; }
+            expandInput -= expandInput%10;
+            expandInput /= 10;
+            
+        }
+        
+        return expandInput;
+        
+    }
+    
+    
+    
+    public static void main(String[] args) {
+        
+        double input = 17.4;
+        System.out.println((int)rounded(input));
+
+    }
